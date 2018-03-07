@@ -1,0 +1,123 @@
+{
+    "name": "pog-boilerplate",
+    "version": "2.0.0",
+    "description": "Pog boilerplate",
+    "main": "index.jsx",
+    "scripts": {
+        "start": "set NODE_ENV=development && webpack-dev-server --env=development --progress --host localhost --port 3000 --open",
+        "build": "set NODE_ENV=production && npm run clean && webpack --env=production --progress --profile --colors",
+        "clean": "rimraf ./build/*",
+        "storybook": "start-storybook -p 9001 -c .storybook",
+        "test": "jest"
+    },
+    "keywords": [],
+    "author": "SaPog",
+    "license": "ISC",
+    "devDependencies": {
+        "@storybook/addon-actions": "^3.3.15",
+        "@storybook/addon-knobs": "^3.3.15",
+        "@storybook/addon-notes": "^3.3.15",
+        "@storybook/addons": "^3.3.15",
+        "@storybook/react": "^3.3.15",
+        "@types/classnames": "^2.2.3",
+        "@types/enzyme": "^3.1.9",
+        "@types/enzyme-adapter-react-16": "^1.0.2",
+        "@types/jest": "^22.2.0",
+        "@types/lodash": "^4.14.104",
+        "@types/node": "^9.4.6",
+        "@types/react": "^16.0.40",
+        "@types/react-dom": "^16.0.3",
+        "@types/react-redux": "^5.0.15",
+        "@types/react-router": "^4.0.22",
+        "@types/react-router-dom": "^4.2.4",
+        "@types/react-transition-group": "^2.0.7",
+        "@types/redux-logger": "^3.0.5",
+        "awesome-typescript-loader": "^5.0.0-0",
+        "css-loader": "^0.28.10",
+        "enzyme": "^3.3.0",
+        "enzyme-adapter-react-16": "^1.1.1",
+        "extract-text-webpack-plugin": "^3.0.2",
+        "file-loader": "^1.1.11",
+        "html-webpack-plugin": "^3.0.6",
+        "identity-obj-proxy": "^3.0.0",
+        "image-webpack-loader": "^4.1.0",
+        "jest": "^22.4.2",
+        "node-sass": "^4.7.2",
+        "postcss-cssnext": "^3.1.0",
+        "postcss-csso": "^3.0.0",
+        "postcss-loader": "^2.1.1",
+        "postcss-reporter": "^5.0.0",
+        "pug": "^2.0.0",
+        "pug-loader": "^2.3.0",
+        "react-hot-loader": "^4.0.0",
+        "react-test-renderer": "^16.2.0",
+        "react-transition-group": "^2.2.1",
+        "redux-devtools-extension": "^2.13.2",
+        "rimraf": "^2.6.2",
+        "sass-loader": "^6.0.7",
+        "style-loader": "^0.20.2",
+        "ts-jest": "^22.4.1",
+        "typescript": "^2.7.2",
+        "webpack": "^3.11.0",
+        "webpack-bundle-analyzer": "^2.11.1",
+        "webpack-dev-server": "^2.11.2",
+        "webpack-merge": "^4.1.2"
+    },
+    "dependencies": {
+        "axios": "^0.18.0",
+        "classnames": "^2.2.5",
+        "lodash": "^4.17.5",
+        "moment": "^2.21.0",
+        "normalize.css": "^8.0.0",
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0",
+        "react-redux": "^5.0.7",
+        "react-router": "^4.2.0",
+        "react-router-dom": "^4.2.2",
+        "react-transition-group": "^2.2.1",
+        "redux": "^3.7.2",
+        "redux-logger": "^3.0.6",
+        "redux-saga": "^0.16.0",
+        "redux-thunk": "^2.2.0",
+        "reselect": "^3.0.1"
+    },
+    "jest": {
+        "transform": {
+            "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+        },
+        "setupFiles": [
+            "<rootDir>/src/utils/testUtils.ts"
+        ],
+        "globals": {
+            "ts-jest": {
+                "skipBabel": true
+            }
+        },
+        "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ],
+        "collectCoverageFrom": [
+            "src/**/*.{ts,tsx}",
+            "!**/node_modules/**",
+            "!src/**/*.test.{ts,tsx}",
+            "!src/**/*.stories.tsx",
+            "!src/**/*/Loadable.{ts,tsx}",
+            "!src/**/*/interfaces.ts",
+            "!src/**/*/interface.ts",
+            "!src/**/*/__mock__.ts",
+            "!src/**/*/__mocks__.ts",
+            "!src/**/*/mock.ts",
+            "!src/**/*/mocks.ts"
+        ],
+        "moduleNameMapper": {
+            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/utils/fileMock.ts",
+            "\\.(css|pcss)$": "identity-obj-proxy"
+        }
+    }
+}
