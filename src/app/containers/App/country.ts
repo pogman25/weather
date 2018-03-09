@@ -1,26 +1,26 @@
-export const country = [
+export const countries = [
     {
         value: 'Russia',
         label: 'Rus'
+    },
+    {
+        value: 'Ukraine',
+        label: 'Ukr'
+    },
+    {
+        value: 'Belarus',
+        label: 'Belarus'
     },
     {
         value: 'France',
         label: 'Fra'
     },
     {
-        value: 'USA',
-        label: 'USA'
-    },
-    {
         value: 'Germany',
         label: 'Ger'
     },
     {
-        value: 'Ukrain',
-        label: 'Ukr'
-    },
-    {
-        value: 'Angli',
-        label: 'Ukr'
+        value: 'England',
+        label: 'UK'
     }
 ]

@@ -17,8 +17,8 @@ export function* callAPI(url, params?) {
 }
 
 export function* getCity(action) {
-    const { name } = action;
-    const url = `Russia/${name}.json`;
+    const { name, country } = action;
+    const url = `${country}/${name.replace(/ /g, '_')}.json`;
     try {
         const { status, data } = yield call(callAPI, url);
         if (status === 200) {

@@ -30,9 +30,10 @@ export const showError = payload => ({
     payload
 });
 
-export const getCity = (name: string) => ({
+export const getCity = (name: string, country: string) => ({
     type: GET_CITY,
-    name
+    name,
+    country
 });
 
 export const receiveCity = payload => ({

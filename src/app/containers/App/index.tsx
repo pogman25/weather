@@ -4,6 +4,8 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { getCity } from './duck';
 import Select from 'react-select';
 import { IStore } from 'src/core/reducers/interfaces';
+import { countries } from './country';
+import 'react-select/dist/react-select.css';
 
 const mapStateToProps = (store: IStore) => ({
     app: store.app
@@ -19,7 +21,11 @@ const mapDispatchToProps = (dispatch: Dispatch<IStore>) =>
 
 class App extends React.Component<any, any> {
     state = {
-        city: ''
+        city: '',
+        country: {
+            value: 'Russia',
+            label: 'Rus'
+        }
     };
 
     handleChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -30,18 +36,28 @@ class App extends React.Component<any, any> {
     };
 
     getCity = () => {
-        const { city } = this.state;
-        this.props.getCity(city);
+        const { city, country } = this.state;
+        this.props.getCity(city, country.value);
+    };
+
+    handleSelect = country => {
+        this.setState({
+            country
+        });
     };
 
     render() {
-        const { app } = this.props;
-        console.log(app);
+        const { country, city } = this.state;
         return (
             <div>
-                <input type="text" name="name" onChange={this.handleChange} />
+                <input type="text" name="name" value={city} onChange={this.handleChange} />
                 <Select
                     name="country"
+                    value={country.value}
+                    options={countries}
+                    onChange={this.handleSelect}
+                    clearable={false}
+                    searchable={false}
                 />
                 <button onClick={this.getCity}>города</button>
             </div>
