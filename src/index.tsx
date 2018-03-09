@@ -5,8 +5,10 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { configureStore } from "./core/configureStore";
 import "./commonStyles/styles.scss";
 import App from "./app/containers/App";
+import saga from './core/sagas';
 
 const store = configureStore();
+store.runSaga(saga);
 
 ReactDOM.render(
     <Provider store={store}>

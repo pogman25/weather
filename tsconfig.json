@@ -1,25 +1,22 @@
 {
     "compilerOptions": {
         "outDir": "./build/",
+        "rootDir": "./src/",
+        "baseUrl": "./",
+        "paths": {
+            "src/*": ["./src/*"]
+        },
         "module": "commonjs",
-        "target": "es5",
+        "target": "es6",
         "sourceMap": true,
         "noImplicitAny": false,
         "experimentalDecorators": true,
         "jsx": "react",
-        "lib": [
-            "dom",
-            "es7",
-            "es2018",
-            "scripthost"
-        ],
-        "noUnusedLocals": true                 /* Report errors on unused locals. */
+        "lib": ["dom", "es7", "es2018", "scripthost"],
+        "noUnusedLocals": true /* Report errors on unused locals. */
         //"noUnusedParameters": true            /* Report errors on unused parameters. */
     },
-    "exclude": [
-        "node_modules"
-    ],
-    "files": [
-        "./src/index.tsx"
-    ]
+    "exclude": ["node_modules"],
+    "include": ["./src/*"],
+    "files": ["./src/index.tsx"]
 }

@@ -10,7 +10,7 @@ module.exports = Merge(commonConfig, {
         main: [
             'webpack-dev-server/client?http://localhost:3000',
             'webpack/hot/only-dev-server',
-            path.join(__dirname, '../src', 'index.tsx'),
+            path.join(__dirname, '../src', 'index.tsx')
         ],
         vendor: ['react', 'react-dom']
     },
