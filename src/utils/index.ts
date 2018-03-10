@@ -11,3 +11,12 @@ export default async function fetchData(
         ...params
     });
 }
+
+export function capitalize(s: string) {
+    if (s.length > 1) {
+        const f = s[0].toUpperCase();
+        return `${f}${s.slice(1)}`;
+    } else {
+        s.toUpperCase();
+    }
+}

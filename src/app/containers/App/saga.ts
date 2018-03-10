@@ -1,6 +1,8 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
 import * as duck from './duck';
-import fetchData from 'src/utils';
+import fetchData, {capitalize} from 'src/utils';
+
+const get = require('lodash/get');
 
 export function* callAPI(url, params?) {
     try {
@@ -22,9 +24,18 @@ export function* getCity(action) {
     try {
         const { status, data } = yield call(callAPI, url);
         if (status === 200) {
-            yield put(duck.receiveCity(data));
+            if (data.hasOwnProperty('forecast')) {
+                const cityKey = `${name}/${country}`
+                yield put(duck.getForecast({
+                    [cityKey]:get(data, 'forecast.simpleforecast.forecastday', [])
+                }))
+                yield put(duck.receiveCity(`${capitalize(name)}/${country}`));
+            }
+        } else {
+            yield put(duck.failRequest())
         }
     } catch (e) {
+        yield put(duck.failRequest())
         console.log(e);
     }
 }

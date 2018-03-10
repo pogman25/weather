@@ -3,8 +3,8 @@ import rootReducer from '../reducers';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware, { END } from 'redux-saga';
 
+const thunk = require('redux-thunk').default;
 const sagaMiddleware = createSagaMiddleware();
-
 const logger = createLogger({
     collapsed: true
 });
@@ -15,7 +15,7 @@ export const configureStore = () => {
             ? createStore(
                   rootReducer,
                   compose(
-                      applyMiddleware(sagaMiddleware, logger),
+                      applyMiddleware(thunk, sagaMiddleware, logger),
                       (window as any)['devToolsExtension']
                           ? (window as any)['devToolsExtension']()
                           : (f: Function) => f
