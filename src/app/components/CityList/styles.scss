@@ -1,0 +1,63 @@
+@import 'src/commonStyles/variables';
+
+.citiesList {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    margin: 30px 0 0 0;
+    padding: 0;
+}
+
+.cityItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 120px;
+    margin-right: 10px;
+    padding: 10px 15px;
+    border-top: $bdDefault;
+    border-left: $bdDefault;
+    border-right: $bdDefault;
+    border-radius: $bdrsSmall $bdrsSmall 0 0;
+    background-color: $white;
+    position: relative;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    cursor: pointer;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: transparentize($black, 0.5);
+        opacity: 1;
+        transition: opacity 0.3s;
+        border-radius: $bdrsSmall $bdrsSmall 0 0;
+    }
+
+    .close {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: $font12;
+    }
+
+    &:hover, &.active {
+        opacity: 1;
+
+        &::before {
+            opacity: 0;
+        }
+
+        .close {
+            opacity: 1;
+        }
+    }
+}

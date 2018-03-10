@@ -13,6 +13,9 @@ const RECEIVE_FAILURE = 'app/RECEIVE_FAILURE';
 
 const GET_FORECAST_SUCCESS = 'app/GET_FORECAST_SUCCESS';
 
+const CHOOSE_CITY = 'app/CHOOSE_CITY';
+const DEL_CITY = 'app/DEL_CITY';
+
 // Reducers
 
 const isFetch = (state = false, action) => {
@@ -32,7 +35,23 @@ const city = (state = [], action) => {
     switch (action.type) {
         case RECEIVE_CITY_SUCCESS:
             return uniq([...state, action.payload]);
+        case DEL_CITY:
+            return state.filter(i => i !== action.payload);
         case RECEIVE_FAILURE:
+        default:
+            return state;
+    }
+};
+
+const chosenCity = (state = '', action) => {
+    switch (action.type) {
+        case CHOOSE_CITY:
+        case RECEIVE_CITY_SUCCESS:
+            return action.payload;
+        case DEL_CITY:
+            if (state === action.payload) {
+                return '';
+            }
         default:
             return state;
     }
@@ -53,6 +72,7 @@ const forecasts = (state = {}, action) => {
 const reducer = combineReducers<IAppReducer>({
     isFetch,
     city,
+    chosenCity,
     forecasts
 });
 
@@ -82,5 +102,15 @@ export const failRequest = () => ({
 
 export const getForecast = payload => ({
     type: GET_FORECAST_SUCCESS,
+    payload
+});
+
+export const chooseCity = (payload: string) => ({
+    type: CHOOSE_CITY,
+    payload
+});
+
+export const delCity = (payload: string) => ({
+    type: DEL_CITY,
     payload
 });
