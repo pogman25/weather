@@ -5,19 +5,22 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = (config, env) => {
     const newConfig = genDefaultConfig(config, env);
 
+    newConfig.resolve.alias = {
+        src: path.resolve(__dirname, '../src')
+    }
+
     newConfig.module.rules.push({
         test: /\.tsx?$/,
         use: ["awesome-typescript-loader"],
-        include: [/stories/, /components/]
+        include: [/stories/, /components/, /Storybook/]
     });
 
     newConfig.module.rules.push({
-        test: /\.scss$/,
+        test: /\.s?css$/,
         exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
             fallback: "style-loader",
             use: [
-                "style-loader",
                 {
                     loader: 'css-loader',
                     query: {

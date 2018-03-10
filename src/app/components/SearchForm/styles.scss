@@ -1,0 +1,28 @@
+@import 'src/commonStyles/variables';
+
+.searchForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectCountry {
+    width: 80px;
+    margin: 0 20px;
+    font-size: $font14;
+}
+
+.searchBtn {
+    border: 1px solid $bcColorMain;
+    border-radius: $bdrsSmall;
+    color: $white;
+    font-size: $font14;
+    padding: 8px 10px;
+    cursor: pointer;
+    background-color: transparentize($bcColorMain, 0.2);
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: transparentize($bcColorMain, 0.5);
+    }
+}

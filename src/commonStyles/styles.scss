@@ -1,0 +1,13 @@
+@import './variables';
+
+:global(.input) {
+    border-radius: 5px;
+    padding: 8px 10px;
+    font-size: $font16;
+    border: $bdDefault;
+}
+
+:global(#app),
+:global(#root) {
+    font-family: Arial, Helvetica, sans-serif;
+}

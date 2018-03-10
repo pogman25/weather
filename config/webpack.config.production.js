@@ -16,7 +16,7 @@ module.exports = Merge(commonConfig, {
                     exclude: /node_modules/,
                 },
                 {
-                    test: /\.scss$/,  //подключаем стили, при продакшине выгружаем в отдельный файл
+                    test: /\.s?css$/,  //подключаем стили, при продакшине выгружаем в отдельный файл
                     exclude: /node_modules/,
                     use: ExtractTextPlugin.extract({
                         fallback: "style-loader",
