@@ -1,7 +1,8 @@
 import * as React from 'react';
-import ForecastItem from "./ForecastItem";
+import ForecastItem from './ForecastItem';
 
 const uniqueId = require('lodash/uniqueId');
+const styles = require('./styles.scss');
 
 interface IForecastList {
     isFetch: boolean;
@@ -12,10 +13,10 @@ export default class ForecastList extends React.Component<IForecastList, any> {
     render() {
         const { isFetch, list } = this.props;
         return (
-            <div>
+            <div className={styles.forecastList}>
                 {list.length > 0 ? (
-                    <ul>
-                        {list.map(f =>
+                    <ul className={styles.forecastListUl}>
+                        {list.map(f => (
                             <ForecastItem
                                 key={uniqueId()}
                                 date={f.date}
@@ -25,7 +26,7 @@ export default class ForecastList extends React.Component<IForecastList, any> {
                                 high={f.high}
                                 low={f.low}
                             />
-                        )}
+                        ))}
                     </ul>
                 ) : (
                     <div>
