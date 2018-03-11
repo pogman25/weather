@@ -4,8 +4,10 @@
     "description": "Pog boilerplate",
     "main": "index.jsx",
     "scripts": {
-        "start": "set NODE_ENV=development&& webpack-dev-server --env=development --progress --host localhost --port 3000 --open",
-        "build": "set NODE_ENV=production&& npm run clean && webpack --env=production --progress --profile --colors",
+        "start:win": "set NODE_ENV=development&& webpack-dev-server --env=development --progress --host localhost --port 3000 --open",
+        "start": "export NODE_ENV=development&& webpack-dev-server --env=development --progress --host localhost --port 3000 --open",
+        "build:win": "set NODE_ENV=production&& npm run clean && webpack --env=production --progress --profile --colors",
+        "build": "export NODE_ENV=production&& npm run clean && webpack --env=production --progress --profile --colors",
         "clean": "rimraf ./build/*",
         "storybook": "start-storybook -p 9001 -c .storybook",
         "test": "jest"
