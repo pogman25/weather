@@ -1,7 +1,10 @@
 import { createSelector } from 'reselect';
 import { IStore } from 'src/core/reducers/interfaces';
+import { IAppReducer } from 'src/app/containers/App/interfaces';
 
-const appReducer = (store: IStore) => store.app;
+const appReducer = (store: IStore): IAppReducer => store.app;
+
+export const getIsFetch = (store: IStore): boolean => store.app.isFetch;
 
 export const getSavedCity = createSelector(appReducer, i => i.city);
 

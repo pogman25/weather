@@ -56,6 +56,7 @@ export default class SearchForm extends React.Component<ISearchForm, ISearchForm
                     name="name"
                     value={city}
                     onChange={this.handleChange}
+                    autoComplete="off"
                 />
                 <Select
                     className={styles.selectCountry}

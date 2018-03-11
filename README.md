@@ -6,19 +6,25 @@
 
 ### Режим разработки
 
-    npm run start
+    npm run start:win - для Windows
+    npm run start - для MacOS
 
 ### Сборка
 
-    npm run build
+    npm run build:win - для Windows
+    npm run build - для MacOS
 
 ### Запуск тестов 
     
     npm jest
 
+### Запуск Storybook 
+    
+    npm run storybook
+
 ### Сборка
 
-Сборка осуществляется на webpack v.3, в ближайшее время планирую мигрировать на webpack v.4 
+Сборка осуществляется на webpack v.3
 
 ### Технологии
 
@@ -26,15 +32,15 @@
 
 WEB framework React 16
 
-state managment Redux, [Redux-Saga](https://github.com/redux-saga/redux-saga)
+state managment Redux, middleware - [Redux-Saga](https://github.com/redux-saga/redux-saga)
 
-Рутинг [React-Router v.4](https://reacttraining.com/react-router/web/guides/philosophy)
+Рутинг [React-Router v.4](https://reacttraining.com/react-router/web/guides/philosophy) здесь не используется
 
 В данном конфиге используется архитектура [Redux Duck](https://github.com/erikras/ducks-modular-redux)
 
 ### Стили
 
-Стили на SCSS, с последующей обработкой PostCSS, мимификация [CSSO](https://github.com/css/csso), autoprfixer [nextCSS](https://github.com/MoOx/postcss-cssnext)
+Стили на SCSS, с последующей обработкой PostCSS, мимификация [CSSO](https://github.com/css/csso), [nextCSS](https://github.com/MoOx/postcss-cssnext)
 
 ### Storybook
 

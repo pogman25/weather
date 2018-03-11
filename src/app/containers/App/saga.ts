@@ -5,6 +5,7 @@ import { getChosenCity, getSavedCity } from 'src/app/containers/App/selectors';
 
 const get = require('lodash/get');
 
+// saga запросов к серверу
 export function* callAPI(url, params?) {
     try {
         return yield call(fetchData, url, params);
@@ -19,6 +20,8 @@ export function* callAPI(url, params?) {
     }
 }
 
+// получение искомого города
+//TODO: обратока ошибок, неправильного поиска города
 export function* getCity(action) {
     const { name, country } = action;
     const url = `${country}/${name.replace(/ /g, '_')}.json`;

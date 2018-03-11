@@ -6,6 +6,7 @@ export interface IAppReducer {
 }
 
 export interface IAppMapState {
+    isFetch: boolean;
     cities: string[];
     chosenCity: string;
     forecast: any[];

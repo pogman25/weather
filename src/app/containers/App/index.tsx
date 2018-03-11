@@ -13,6 +13,7 @@ import { IAppMapState, IAppMapDispatch } from 'src/app/containers/App/interfaces
 const styles = require('./styles.scss');
 
 const mapStateToProps = (store: IStore): IAppMapState => ({
+    isFetch: S.getIsFetch(store),
     cities: S.getSavedCity(store),
     chosenCity: S.getChosenCity(store),
     forecast: S.getForecast(store)
@@ -32,7 +33,15 @@ type IApp = IAppMapState & IAppMapDispatch;
 
 class App extends React.Component<IApp, any> {
     render() {
-        const { cities, chosenCity, forecast, getCity, chooseCity, delCity } = this.props;
+        const {
+            isFetch,
+            cities,
+            chosenCity,
+            forecast,
+            getCity,
+            chooseCity,
+            delCity
+        } = this.props;
 
         return (
             <div className={styles.mainContent}>
@@ -49,7 +58,9 @@ class App extends React.Component<IApp, any> {
                         <p>Input City and Choose Country</p>
                     </div>
                 )}
-                {forecast.length > 0 && <ForecastList isFetch={false} list={forecast} />}
+                {forecast.length > 0 && (
+                    <ForecastList isFetch={isFetch} list={forecast} />
+                )}
             </div>
         );
     }

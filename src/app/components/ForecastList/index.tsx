@@ -6,7 +6,7 @@ const styles = require('./styles.scss');
 
 interface IForecastList {
     isFetch: boolean;
-    list: any[];
+    list: any[]; //TODO: add interface
 }
 
 export default class ForecastList extends React.Component<IForecastList, any> {
@@ -33,7 +33,7 @@ export default class ForecastList extends React.Component<IForecastList, any> {
                         {isFetch ? (
                             <p>...Loading</p>
                         ) : (
-                            <p>This coty doesn't exist in base</p>
+                            <p>This city doesn't exist in base</p>
                         )}
                     </div>
                 )}
