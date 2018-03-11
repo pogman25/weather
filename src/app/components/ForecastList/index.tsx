@@ -2,9 +2,14 @@ import * as React from 'react';
 
 const uniqueId = require('lodash/uniqueId')
 
-export default class ForecastList extends React.Component<any, any> {
+interface IForecastList {
+    isFetch: boolean;
+    list: any[];
+}
+
+export default class ForecastList extends React.Component<IForecastList, any> {
     render() {
-        const { isFetch, list, city } = this.props;
+        const { isFetch, list } = this.props;
         return (
             <div>
                 {list.length > 0 ? (

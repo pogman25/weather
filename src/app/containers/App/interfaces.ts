@@ -8,6 +8,7 @@ export interface IAppReducer {
 export interface IAppMapState {
     cities: string[];
     chosenCity: string;
+    forecast: any[];
 }
 
 export interface IAppMapDispatch {

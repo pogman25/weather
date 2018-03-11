@@ -14,7 +14,7 @@ const RECEIVE_FAILURE = 'app/RECEIVE_FAILURE';
 const GET_FORECAST_SUCCESS = 'app/GET_FORECAST_SUCCESS';
 
 const CHOOSE_CITY = 'app/CHOOSE_CITY';
-const DEL_CITY = 'app/DEL_CITY';
+export const DEL_CITY = 'app/DEL_CITY';
 
 // Reducers
 
@@ -48,10 +48,6 @@ const chosenCity = (state = '', action) => {
         case CHOOSE_CITY:
         case RECEIVE_CITY_SUCCESS:
             return action.payload;
-        case DEL_CITY:
-            if (state === action.payload) {
-                return '';
-            }
         default:
             return state;
     }

@@ -6,3 +6,9 @@ const appReducer = (store: IStore) => store.app;
 export const getSavedCity = createSelector(appReducer, i => i.city);
 
 export const getChosenCity = createSelector(appReducer, i => i.chosenCity);
+
+export const getForecast = createSelector(
+    appReducer,
+    getChosenCity,
+    (reducer, city) => reducer.forecasts[city]
+);
