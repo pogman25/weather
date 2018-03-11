@@ -1,4 +1,4 @@
-import { takeEvery, call, put, select } from 'redux-saga/effects';
+import { takeEvery, takeLatest, call, put, select } from 'redux-saga/effects';
 import * as duck from './duck';
 import fetchData, { capitalize } from 'src/utils';
 import { getChosenCity, getSavedCity } from 'src/app/containers/App/selectors';
@@ -52,7 +52,14 @@ export function* delCity(action) {
     }
 }
 
+export function* requestForecast(action) {
+    const { payload } = action;
+    const city = payload.split('/');
+    yield call(getCity, { name: city[0], country: city[1] });
+}
+
 export default function* rootSaga() {
     yield takeEvery(duck.GET_CITY, getCity);
     yield takeEvery(duck.DEL_CITY, delCity);
+    yield takeLatest(duck.CHOOSE_CITY, requestForecast);
 }

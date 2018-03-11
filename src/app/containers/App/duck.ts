@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { IAppReducer } from 'src/app/containers/App/interfaces';
 
 const uniq = require('lodash/uniq');
+const omit = require('lodash/omit');
 
 // Actions
 
@@ -13,7 +14,7 @@ const RECEIVE_FAILURE = 'app/RECEIVE_FAILURE';
 
 const GET_FORECAST_SUCCESS = 'app/GET_FORECAST_SUCCESS';
 
-const CHOOSE_CITY = 'app/CHOOSE_CITY';
+export const CHOOSE_CITY = 'app/CHOOSE_CITY';
 export const DEL_CITY = 'app/DEL_CITY';
 
 // Reducers
@@ -60,6 +61,8 @@ const forecasts = (state = {}, action) => {
                 ...state,
                 ...action.payload
             };
+        case DEL_CITY:
+            return omit(state, action.payload);
         default:
             return state;
     }
