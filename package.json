@@ -4,14 +4,10 @@
     "description": "Pog boilerplate",
     "main": "index.jsx",
     "scripts": {
-        "start:win":
-            "set NODE_ENV=development&& webpack-dev-server --env=development --progress --host localhost --port 3000 --open",
-        "start":
-            "export NODE_ENV=development&& webpack-dev-server --env=development --progress --host localhost --port 3000 --open",
-        "build:win":
-            "set NODE_ENV=production&& npm run clean && webpack --env=production --progress --profile --colors",
-        "build":
-            "export NODE_ENV=production&& npm run clean && webpack --env=production --progress --profile --colors",
+        "start:win": "set NODE_ENV=development&& webpack-dev-server --env=development --progress --host localhost --port 3000 --open",
+        "start": "export NODE_ENV=development&& webpack-dev-server --env=development --progress --host localhost --port 3000 --open",
+        "build:win": "set NODE_ENV=production&& npm run clean && webpack --env=production --progress --profile --colors",
+        "build": "export NODE_ENV=production&& npm run clean && webpack --env=production --progress --profile --colors",
         "clean": "rimraf ./build/*",
         "storybook": "start-storybook -p 9001 -c .storybook",
         "test": "jest"
@@ -91,14 +87,23 @@
         "transform": {
             "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
         },
-        "setupFiles": ["<rootDir>/src/utils/testUtils.ts"],
+        "setupFiles": [
+            "<rootDir>/src/utils/testUtils.ts"
+        ],
         "globals": {
             "ts-jest": {
                 "skipBabel": true
             }
         },
         "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-        "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js",
+            "jsx",
+            "json",
+            "node"
+        ],
         "collectCoverageFrom": [
             "src/**/*.{ts,tsx}",
             "!**/node_modules/**",
@@ -113,8 +118,7 @@
             "!src/**/*/mocks.ts"
         ],
         "moduleNameMapper": {
-            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-                "<rootDir>/src/utils/fileMock.ts",
+            "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/utils/fileMock.ts",
             "\\.(css|scss)$": "identity-obj-proxy",
             "^src/(.*)": "<rootDir>/src/"
         }

@@ -13,5 +13,5 @@ export const getChosenCity = createSelector(appReducer, i => i.chosenCity);
 export const getForecast = createSelector(
     appReducer,
     getChosenCity,
-    (reducer, city) => reducer.forecasts[city]
+    (reducer, city) => reducer.forecasts[city] || []
 );
